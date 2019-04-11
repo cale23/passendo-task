@@ -120,7 +120,7 @@ export default {
   computed: {
     firstname: {
       get() {
-        return this.$store.state.firstname;
+        return this.$store.state.user.firstname;
       },
       set(value) {
         this.$store.commit("setFirstname", value);
@@ -128,7 +128,7 @@ export default {
     },
     lastname: {
       get() {
-        return this.$store.state.lastname;
+        return this.$store.state.user.lastname;
       },
       set(value) {
         this.$store.commit("setLastname", value);
@@ -136,7 +136,7 @@ export default {
     },
     email: {
       get() {
-        return this.$store.state.email;
+        return this.$store.state.user.email;
       },
       set(value) {
         this.$store.commit("setEmail", value);
@@ -144,7 +144,7 @@ export default {
     },
     username: {
       get() {
-        return this.$store.state.username;
+        return this.$store.state.user.username;
       },
       set(value) {
         this.$store.commit("setUsername", value);
@@ -152,7 +152,7 @@ export default {
     },
     password: {
       get() {
-        return this.$store.state.password;
+        return this.$store.state.user.password;
       },
       set(value) {
         this.$store.commit("setPassword", value);
@@ -163,8 +163,7 @@ export default {
     addBasicUserSettings() {
       this.$validator.validateAll().then(result => {
         if (result) {
-          this.$emit("incrementStep");
-          this.$router.push("/second-step");
+          this.$router.push({ name: 'secondStep', params: { id: '2' } });
         } else {
           console.log("Not valid");
         }

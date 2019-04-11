@@ -9,15 +9,15 @@ export default new Router({
   routes: [
     {
       path: '*',
-      redirect: '/first-step'
+      redirect: '/1'
     },
     {
-      path: '/first-step',
+      path: '/:id',
       name: 'firstStep',
       component: FirstStep
     },
     {
-      path: '/second-step',
+      path: '/:id',
       name: 'secondStep',
       component: SecondStep
     },

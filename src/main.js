@@ -4,6 +4,7 @@ import router from './router'
 import store from './store'
 import BootstrapVue from 'bootstrap-vue'
 import VeeValidate from "vee-validate";
+import VueSelect from "vue-select";
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 
@@ -12,6 +13,8 @@ Vue.use(VeeValidate, {
   events: "input",
   validity: true
 });
+Vue.use(VueSelect)
+Vue.component('v-select', VueSelect)
 
 Vue.config.productionTip = false
 

@@ -3,7 +3,7 @@
     <div class="row justify-content-md-center">
       <div class="col-sm-12">
         <step-indicator :current="current_step" :total="2" currentColor="#007bff"></step-indicator>
-        <router-view @incrementStep="incrementTotal"></router-view>
+        <router-view></router-view>
       </div>
     </div>
   </div>
@@ -14,6 +14,7 @@ import StepIndicator from "vue-step-indicator";
 import { debug } from 'util';
 
 export default {
+  name: 'App',
   components: {
     StepIndicator
   },
@@ -23,15 +24,24 @@ export default {
     };
   },
   methods: {
-    incrementTotal() {
-      this.current_step++;
+    changeStep() {
+      switch(this.$route.params.id) {
+        case '1':
+          this.current_step = 0;
+          break;
+        case '2': 
+          this.current_step = 1
+      }
     }
+  },
+  updated: function() {
+    this.changeStep();
   }
 };
 </script>
 
 <style lang="scss">
-h5 {
+h5, label:not(.custom-control-label), .add-more {
   font-weight: bold !important;
 }
 .container {
@@ -57,9 +67,6 @@ input:invalid {
 }
 span.invalid {
   color: red;
-}
-label:not(.custom-control-label) {
-  font-weight: bold;
 }
 .custom-control-label {
   font-size: 14px;
@@ -99,5 +106,8 @@ label:not(.custom-control-label) {
   transform: translateY(-50%);
   z-index: 1;
   background: rgb(223, 231, 239);
+}
+.add-more {
+  cursor: pointer;
 }
 </style>

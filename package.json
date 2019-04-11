@@ -14,6 +14,7 @@
     "vue": "^2.6.10",
     "vue-form-wizard": "^0.8.4",
     "vue-router": "^3.0.1",
+    "vue-select": "^2.6.4",
     "vue-step-indicator": "^0.1.2",
     "vuex": "^3.0.1"
   },

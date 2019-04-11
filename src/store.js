@@ -5,31 +5,34 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    firstname: "",
-    lastname: "",
-    email: "",
-    username: "",
-    password: "",
-    tags: []
+    user: {
+      firstname: "",
+      lastname: "",
+      email: "",
+      username: "",
+      password: "",
+      tags: []
+    },
+    availableTags: ['foo','bar','baz']
   },
   mutations: {
     setFirstname(state, value) {
-      state.firstname = value
+      state.user.firstname = value
     },
     setLastname(state, value) {
-      state.lastname = value
+      state.user.lastname = value
     },
     setEmail(state, value) {
-      state.email = value
+      state.user.email = value
     },
     setUsername(state, value) {
-      state.username = value
+      state.user.username = value
     },
     setPassword(state, value) {
-      state.password = value
+      state.user.password = value
     },
-    setTags(state, value) {
-      state.tags.push(value);
+    addTag(state, value) {
+      state.user.tags.push(value);
     }
   },
   actions: {
