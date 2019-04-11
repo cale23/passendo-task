@@ -30,7 +30,7 @@ export default {
       },
       set(value) {
         if (value != null) {
-          this.$store.commit("addTag", value);
+          if (this.$store.state.user.tags.indexOf(value) == -1) this.$store.commit("addTag", value);
           if (this.options.indexOf(value) == -1) this.$store.commit("addAvailableTag", value);
         }
       }
