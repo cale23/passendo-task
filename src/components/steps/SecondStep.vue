@@ -3,10 +3,11 @@
     <div class="card">
       <h5 class="card-header text-center">Add tags</h5>
       <div class="card-body">
-        <div v-show="!adding" class="add-more" @click="adding = !adding">+ Add more</div>{{options}}
+        <div v-show="!adding" class="add-more" @click="adding = !adding">+ Add more</div>
         <div v-show="adding" class="col-md-4">
           <v-select taggable push-tags :options="options" @input="onChange" v-model="tags"></v-select>
         </div>
+        {{options}}
         <b-button type="button" class="float-right" variant="primary">Save</b-button>
       </div>
     </div>
