@@ -45,7 +45,7 @@ export default {
   },
   methods: {
     onChange() {
-      this.adding = !this.adding;
+      // this.adding = !this.adding;
     }
   }
 };
