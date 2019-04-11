@@ -17,6 +17,7 @@
                   variant="primary"
                   class="select-all btn btn-primary"
                   @click="selectAll"
+                  :disabled="options.length < 1"
                 >Select All</button>
               </div>
             </div>
@@ -73,8 +74,6 @@ export default {
         select.select(option);
       });
 
-      e.preventDefault();
-      e.target.disabled = true;
       select.open = false;
       this.adding = !this.adding;
     },
