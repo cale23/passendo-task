@@ -2,7 +2,12 @@
   <div class="container">
     <div class="row justify-content-md-center">
       <div class="col-sm-12">
-        <step-indicator :current="current_step" :total="2" currentColor="#007bff"></step-indicator>
+        <step-indicator
+          :current="current_step"
+          :total="2"
+          currentColor="#007bff"
+          defaultColor="#ccc"
+        ></step-indicator>
         <router-view></router-view>
       </div>
     </div>
@@ -11,10 +16,10 @@
  
 <script>
 import StepIndicator from "vue-step-indicator";
-import { debug } from 'util';
+import { debug } from "util";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
     StepIndicator
   },
@@ -25,12 +30,12 @@ export default {
   },
   methods: {
     changeStep() {
-      switch(this.$route.meta.id) {
+      switch (this.$route.meta.id) {
         case 1:
           this.current_step = 0;
           break;
-        case 2: 
-          this.current_step = 1
+        case 2:
+          this.current_step = 1;
       }
     }
   },
@@ -44,8 +49,13 @@ export default {
 </script>
 
 <style lang="scss">
-h5, label:not(.custom-control-label), .add-more {
+h5,
+label:not(.custom-control-label),
+.add-more {
   font-weight: bold !important;
+}
+ul {
+  list-style: none;
 }
 .container {
   margin-top: 20px;
@@ -110,7 +120,26 @@ span.invalid {
   z-index: 1;
   background: rgb(223, 231, 239);
 }
+.tag {
+  background: #1eac80;
+  padding: 0 10px;
+  margin-bottom: 5px;
+  border-radius: 3px;
+  display: table;
+}
 .add-more {
   cursor: pointer;
+}
+.add-tags {
+  position: relative;
+
+  .select-all {
+    position: absolute;
+    width: 80px;
+    height: 34px;
+    right: -70px;
+    top: 0px;
+    padding: 0;
+  }
 }
 </style>

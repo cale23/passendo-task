@@ -163,7 +163,12 @@ export default {
     addBasicUserSettings() {
       this.$validator.validateAll().then(result => {
         if (result) {
-          this.$router.push({ name: 'secondStep' });
+          return new Promise((resolve, reject) => {
+            setTimeout(() => {
+              this.$router.push({ name: "secondStep" });
+              resolve();
+            }, 0);
+          });
         } else {
           console.log("Not valid");
         }

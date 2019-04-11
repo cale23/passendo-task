@@ -11,9 +11,9 @@ export default new Vuex.Store({
       email: "",
       username: "",
       password: "",
-      tags: []
+      tags: ['test tag (28)']
     },
-    availableTags: ['foo','bar','baz']
+    availableTags: ['foo', 'bar', 'baz']
   },
   mutations: {
     setFirstname(state, value) {
@@ -32,10 +32,13 @@ export default new Vuex.Store({
       state.user.password = value
     },
     addTag(state, value) {
-      state.user.tags.push(value);
+      if (state.user.tags.indexOf(value) == -1)
+        state.user.tags.push(value);
+        state.availableTags = state.availableTags.filter(function (i) { return state.user.tags.indexOf(i) < 0; });
     },
     addAvailableTag(state, value) {
-      state.availableTags.push(value);
+      if (state.availableTags.indexOf(value) == -1)
+        state.availableTags.push(value);
     }
   },
   actions: {
