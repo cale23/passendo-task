@@ -9,17 +9,23 @@ export default new Router({
   routes: [
     {
       path: '*',
-      redirect: '/1'
+      redirect: '/steps/1'
     },
     {
-      path: '/:id',
+      path: '/steps/1',
       name: 'firstStep',
-      component: FirstStep
+      component: FirstStep,
+      meta: {
+        id: 1
+      }
     },
     {
-      path: '/:id',
+      path: '/steps/2',
       name: 'secondStep',
-      component: SecondStep
+      component: SecondStep,
+      meta: {
+        id: 2
+      }
     },
     // {
     //   path: '/about',

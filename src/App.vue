@@ -25,14 +25,17 @@ export default {
   },
   methods: {
     changeStep() {
-      switch(this.$route.params.id) {
-        case '1':
+      switch(this.$route.meta.id) {
+        case 1:
           this.current_step = 0;
           break;
-        case '2': 
+        case 2: 
           this.current_step = 1
       }
     }
+  },
+  mounted: function() {
+    this.changeStep();
   },
   updated: function() {
     this.changeStep();

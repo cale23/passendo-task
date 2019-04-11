@@ -163,7 +163,7 @@ export default {
     addBasicUserSettings() {
       this.$validator.validateAll().then(result => {
         if (result) {
-          this.$router.push({ name: 'secondStep', params: { id: '2' } });
+          this.$router.push({ name: 'secondStep' });
         } else {
           console.log("Not valid");
         }
