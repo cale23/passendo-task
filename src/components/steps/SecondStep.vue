@@ -5,7 +5,7 @@
       <div class="card-body">
         <div v-show="!adding" class="add-more" @click="adding = !adding">+ Add more</div>{{options}}
         <div v-show="adding" class="col-md-4">
-          <v-select taggable push-tags :options="options" @change="onChange" v-model="tags"></v-select>
+          <v-select taggable push-tags :options="options" @input="onChange" v-model="tags"></v-select>
         </div>
         <b-button type="button" class="float-right" variant="primary">Save</b-button>
       </div>
@@ -45,7 +45,7 @@ export default {
   },
   methods: {
     onChange() {
-      // this.adding = !this.adding;
+      this.adding = !this.adding;
     }
   }
 };
