@@ -33,6 +33,9 @@ export default new Vuex.Store({
     },
     addTag(state, value) {
       state.user.tags.push(value);
+    },
+    addAvailableTag(state, value) {
+      state.availableTags.push(value);
     }
   },
   actions: {
