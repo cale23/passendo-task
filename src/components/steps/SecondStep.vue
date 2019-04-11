@@ -5,7 +5,7 @@
       <div class="card-body">
         <div v-show="!adding" class="add-more" @click="adding = !adding">+ Add more</div>
         <div v-show="adding" class="col-md-4">
-          <v-select taggable push-tags :options="options" @input="onChange" v-model="tags"></v-select>
+          <v-select taggable push-tags :options="options" @input="onChange"></v-select>
         </div>
         {{options}}
         <b-button type="button" class="float-right" variant="primary">Save</b-button>
@@ -29,10 +29,7 @@ export default {
         return this.$store.state.user.tags;
       },
       set(value) {
-        if (value != null) {
-          if (this.$store.state.user.tags.indexOf(value) == -1) this.$store.commit("addTag", value);
-          if (this.options.indexOf(value) == -1) this.$store.commit("addAvailableTag", value);
-        }
+        this.$store.commit("addTag", value);
       }
     },
     availableTags: {
@@ -45,8 +42,12 @@ export default {
     }
   },
   methods: {
-    onChange() {
+    onChange(value) {
       this.adding = !this.adding;
+      if (value != null) {
+        if (this.$store.state.user.tags.indexOf(value) == -1) this.$store.commit("addTag", value);
+        if (this.options.indexOf(value) == -1) this.$store.commit("addAvailableTag", value);
+      }
     }
   }
 };
