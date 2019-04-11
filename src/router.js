@@ -8,7 +8,11 @@ Vue.use(Router)
 export default new Router({
   routes: [
     {
-      path: '/',
+      path: '*',
+      redirect: '/first-step'
+    },
+    {
+      path: '/first-step',
       name: 'firstStep',
       component: FirstStep
     },
