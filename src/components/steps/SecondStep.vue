@@ -68,7 +68,7 @@ export default {
       const select = this.$refs.select;
       select.clearSelection();
     },
-    selectAll(e) {
+    selectAll() {
       const select = this.$refs.select;
       select.options.forEach(option => {
         select.select(option);
